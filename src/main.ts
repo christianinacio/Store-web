@@ -8,9 +8,17 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <thead>
         <tr>
         <th>Nombre</th>
-        <th>Precio</th>
         </tr>
       </thead>
+      <tbody>
+        ${products
+          .map(p => `
+            <tr>
+              <td><a href="product.html?name=${encodeURIComponent(p.name)}">${p.name}</a></td>
+            </tr>
+          `)
+          .join('')}
+      </tbody>
     </table>
   </div>
 `
